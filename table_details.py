@@ -17,7 +17,7 @@ def get_table_details():
     # Iterate over the DataFrame rows to create Document objects
     table_details = ""
     for index, row in table_description.iterrows():
-        table_details = table_details + "Table Name:" + row['Table'] + "\n" + "Table Description:" + row['Description'] + "\n\n"
+        table_details = table_details + "Table Name: " + row['Table'] + "\n" + "Table Description: " + row['Description'] + "\n\n"
 
     return table_details
 
@@ -39,6 +39,6 @@ The tables are:
 
 {table_details}
 
-Remember to include ALL POTENTIALLY RELEVANT tables, even if you're not sure that they're needed."""
+Remember to include ALL POTENTIALLY RELEVANT tables but only those that are included in the table details above, even if you're not sure that they're needed."""
 
 table_chain = {"input": itemgetter("question")} | create_extraction_chain_pydantic(Table, llm, system_message=table_details_prompt) | get_tables
