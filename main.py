@@ -1,6 +1,6 @@
 import streamlit as st
 from utils import invoke_chain
-st.title("Langchain NL2SQL Chatbot")
+st.title("Natural Language to SQL ChatBot")
 
 # Set OpenAI API key from Streamlit secrets
 
