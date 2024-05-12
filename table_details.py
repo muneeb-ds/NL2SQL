@@ -34,11 +34,11 @@ def get_tables(tables: List[Table]) -> List[str]:
 
 # table_names = "\n".join(db.get_usable_table_names())
 table_details = get_table_details()
-table_details_prompt = f"""Return the names of ALL the SQL tables that MIGHT be relevant to the user question. \
-The tables are:
+table_details_prompt = f"""Given the following user question, return the names of SQL tables that might be relevant to answering it. \
+Consider only the tables listed below.
 
 {table_details}
 
-Remember to include ALL POTENTIALLY RELEVANT tables but only those that are included in the table details above, even if you're not sure that they're needed."""
+Remember to include only potentially relevant tables based on the user question, and select them from the table details provided above."""
 
 table_chain = {"input": itemgetter("question")} | create_extraction_chain_pydantic(Table, llm, system_message=table_details_prompt) | get_tables
