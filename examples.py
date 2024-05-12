@@ -66,7 +66,7 @@ examples = [
 
 ]
 
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma, FAISS
 from langchain_core.example_selectors import SemanticSimilarityExampleSelector
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 import streamlit as st
@@ -81,8 +81,8 @@ def get_example_selector():
         examples,
         HuggingFaceBgeEmbeddings(
     model_name=model_name, model_kwargs=model_kwargs, encode_kwargs=encode_kwargs),
-        Chroma,
-        k=2,
+        FAISS,
+        k=3,
         input_keys=["input"],
     )
     return example_selector
