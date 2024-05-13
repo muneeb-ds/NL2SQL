@@ -1,12 +1,6 @@
 import streamlit as st
-from utils import invoke_chain
+from src.utils import invoke_chain
 st.title("Natural Language to SQL ChatBot")
-
-# Set OpenAI API key from Streamlit secrets
-
-# Set a default model
-# if "openai_model" not in st.session_state:
-#     st.session_state["openai_model"] = "gpt-3.5-turbo"
 
 # Initialize chat history
 if "messages" not in st.session_state:

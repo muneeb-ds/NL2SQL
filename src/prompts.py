@@ -1,5 +1,5 @@
 
-from examples import get_example_selector
+from src.examples import get_example_selector
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder,FewShotChatMessagePromptTemplate,PromptTemplate
 
 example_prompt = ChatPromptTemplate.from_messages(

@@ -5,8 +5,9 @@ from langchain.chains.openai_tools import create_extraction_chain_pydantic
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_groq import ChatGroq
 
-llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
 from typing import List
+
+llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
 
 @st.cache_data
 def get_table_details():

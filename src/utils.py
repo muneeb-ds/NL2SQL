@@ -12,20 +12,17 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 LANGCHAIN_TRACING_V2 = os.getenv("LANGCHAIN_TRACING_V2")
 LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
 
+from operator import itemgetter
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain.chains.sql_database.query import create_sql_query_chain
 from langchain_groq import ChatGroq
 from langchain_community.tools.sql_database.tool import QuerySQLDataBaseTool
 from langchain.memory import ChatMessageHistory
-
-from operator import itemgetter
-
 from langchain_core.output_parsers import StrOutputParser
-
 from langchain_core.runnables import RunnablePassthrough
 
-from table_details import table_chain as select_table
-from prompts import final_prompt, answer_prompt
+from src.table_details import table_chain as select_table
+from src.prompts import final_prompt, answer_prompt
 
 import streamlit as st
 @st.cache_resource
